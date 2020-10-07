@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5c54e3d289d48f082ee40d4ef273233" Name="Diagram1">
+        <EntityTypeShape EntityType="JMSModel.Asset" Width="1.5" PointX="5.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.AssetStatusSet" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Bin" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Brand" Width="1.5" PointX="3" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Bundle" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Carrier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Colour" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Condition" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Connector" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.CPU" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.CPUSpeed" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.ItemType" Width="1.5" PointX="3" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.JobAsset" Width="1.5" PointX="7.5" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Job" Width="1.5" PointX="3" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Load" Width="1.5" PointX="8.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.MCQ_MobileAssetsFeed" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JMSModel.Project" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="JMSModel.Asset_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_AssetStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_Bin" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_ItemType" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_Job" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_Load" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Asset_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.JobAsset_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Bundle_AssetStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Bundle_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.JobAsset_Job" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Job_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Load_Job" ManuallyRouted="false" />
+        <AssociationConnector Association="JMSModel.Load_Project" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

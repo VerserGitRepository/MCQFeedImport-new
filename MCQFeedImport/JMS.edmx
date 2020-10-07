@@ -1,0 +1,1928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ClientRef" Type="nvarchar" MaxLength="255" />
+          <Property Name="PONumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="255" />
+          <Property Name="Model" Type="nvarchar" MaxLength="255" />
+          <Property Name="SerialNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="255" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="255" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="WMSItemType_ID" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WMSWarehouse_ID" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsSelected" Type="bit" Nullable="false" />
+          <Property Name="CustomField1" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField2" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField3" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField4" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField5" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField6" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField7" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField8" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField9" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomField10" Type="nvarchar" MaxLength="1" />
+          <Property Name="AssetID" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsSerialised" Type="bit" Nullable="false" />
+          <Property Name="SKUCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="QtyOnHand" Type="int" Nullable="false" />
+          <Property Name="BuyPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Condition" Type="nvarchar(max)" />
+          <Property Name="ScreenSize" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsScanned" Type="bit" Nullable="false" />
+          <Property Name="AssetTag" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeskNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="SellPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PalletNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReservationCustomer" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReservationComment" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReservationDate" Type="datetime" />
+          <Property Name="DateReceived" Type="datetime" />
+          <Property Name="GRADate" Type="datetime" />
+          <Property Name="DV" Type="float" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsScrap" Type="bit" Nullable="false" />
+          <Property Name="DateTested" Type="datetime" />
+          <Property Name="ReleaseDate" Type="datetime" />
+          <Property Name="ReportId" Type="int" />
+          <Property Name="FormattedCondition" Type="nvarchar(max)" />
+          <Property Name="Completeness" Type="nvarchar" MaxLength="255" />
+          <Property Name="Appearance" Type="nvarchar" MaxLength="255" />
+          <Property Name="Services" Type="nvarchar" MaxLength="255" />
+          <Property Name="Operability" Type="nvarchar" MaxLength="255" />
+          <Property Name="ConditionReportDate" Type="datetime" />
+          <Property Name="PhysicalInspectionDate" Type="datetime" />
+          <Property Name="PhysicalInspectionUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="ConditionCount" Type="int" />
+          <Property Name="ExpectedSellPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DateBilled" Type="datetime" />
+          <Property Name="DateRemitted" Type="datetime" />
+          <Property Name="ClientAssetTag" Type="nvarchar" MaxLength="255" />
+          <Property Name="Asset_Asset2" Type="int" />
+          <Property Name="Asset_AssetStatus" Type="int" Nullable="false" />
+          <Property Name="Asset_AssetType" Type="int" />
+          <Property Name="Asset_Bin" Type="int" />
+          <Property Name="Asset_Brand1" Type="int" />
+          <Property Name="Asset_Dispatch1" Type="int" />
+          <Property Name="Asset_ItemType1" Type="int" />
+          <Property Name="Asset_JobBundle" Type="int" />
+          <Property Name="Asset_Job1" Type="int" />
+          <Property Name="Asset_Load2" Type="int" />
+          <Property Name="Asset_Model1" Type="int" />
+          <Property Name="Asset_StockCategory" Type="int" />
+          <Property Name="Asset_Project" Type="int" Nullable="false" />
+          <Property Name="Asset_ReservationCode" Type="int" />
+          <Property Name="Asset_StockCategory1" Type="int" />
+          <Property Name="Asset_Warehouse" Type="int" />
+          <Property Name="OldSSN" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AssetStatusSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BinNo" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Bin_StorageArea" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bundles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="BundleType" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FriendlyDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsInactive" Type="bit" Nullable="false" />
+          <Property Name="WMSSiteWarehouse_ID" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WMSInventory_Inventory" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="Bundle_AssetStatus" Type="int" />
+          <Property Name="Bundle_Inventory" Type="int" />
+          <Property Name="ServiceBundle_Project" Type="int" Nullable="false" />
+          <Property Name="Bundle_Site" Type="int" />
+          <Property Name="Bundle_Warehouse1" Type="int" />
+          <Property Name="ServiceBundle_Zone" Type="int" />
+        </EntityType>
+        <EntityType Name="Carriers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarrierName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="SiteName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="255" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Suburb" Type="nvarchar" MaxLength="255" />
+          <Property Name="State" Type="nvarchar" MaxLength="255" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Colours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Conditions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConditionType" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ConditionName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="BypassBlanccoTest" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Connectors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPUSpeeds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GHz" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemTypeName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="GRADescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PickTime" Type="int" Nullable="false" />
+          <Property Name="DataWipe" Type="bit" Nullable="false" />
+          <Property Name="BlanccoTest" Type="bit" Nullable="false" />
+          <Property Name="MEFGRADescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="ManualTest" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobAssets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="IsDone" Type="bit" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+          <Property Name="OldSerialNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDoneTech" Type="bit" />
+          <Property Name="IsDoneUser" Type="bit" />
+          <Property Name="IsSelected" Type="bit" Nullable="false" />
+          <Property Name="JobAsset_Asset" Type="int" Nullable="false" />
+          <Property Name="JobAsset_Dispatch" Type="int" />
+          <Property Name="JobAsset_JobBundle" Type="int" />
+          <Property Name="JobAsset_Job" Type="int" Nullable="false" />
+          <Property Name="JObTest" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="JobNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="JobType" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ClientRef" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientPO" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateReceived" Type="datetime" Nullable="false" />
+          <Property Name="SLA" Type="datetime" />
+          <Property Name="JobDate" Type="datetime" Nullable="false" />
+          <Property Name="JobTime" Type="datetime" />
+          <Property Name="DateCompleted" Type="datetime" />
+          <Property Name="WorkInstructions" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Department" Type="nvarchar" MaxLength="255" />
+          <Property Name="Building" Type="nvarchar" MaxLength="255" />
+          <Property Name="Floor" Type="nvarchar" MaxLength="255" />
+          <Property Name="RunNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="NetTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BundleTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AssetPurchaseTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceNotes" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsSelected" Type="bit" Nullable="false" />
+          <Property Name="IsInactive" Type="bit" Nullable="false" />
+          <Property Name="MYOBCostCentre_CostCentreID" Type="int" Nullable="false" />
+          <Property Name="MYOBEmployee_EmployeeID" Type="int" Nullable="false" />
+          <Property Name="MYOBSale_SaleID" Type="int" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="MYOBCustomer_CustomerID" Type="int" />
+          <Property Name="CustomerSignatureVector" Type="nvarchar(max)" />
+          <Property Name="CustomerSignatureImage" Type="varbinary(max)" />
+          <Property Name="TechnicianSignatureVector" Type="nvarchar(max)" />
+          <Property Name="TechnicianSignatureImage" Type="varbinary(max)" />
+          <Property Name="WorkOrderUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="IncomingFreightProvider" Type="nvarchar" MaxLength="255" />
+          <Property Name="IncomingConsignmentNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="IncomingStatus" Type="nvarchar" MaxLength="255" />
+          <Property Name="IncomingDateReceived" Type="datetime" />
+          <Property Name="IncomingReceiverName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OutgoingFreightProvider" Type="nvarchar" MaxLength="255" />
+          <Property Name="OutgoingConsignmentNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="OutgoingStatus" Type="nvarchar" MaxLength="255" />
+          <Property Name="OutgoingDateReceived" Type="datetime" />
+          <Property Name="OutgoingReceiverName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PostJobSLA" Type="datetime" />
+          <Property Name="InternalComments" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="JobMonth" Type="int" />
+          <Property Name="JobYear" Type="int" />
+          <Property Name="TechnicianName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+          <Property Name="WorkOrderExported" Type="bit" Nullable="false" />
+          <Property Name="DateSigned" Type="datetime" />
+          <Property Name="DellType" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsChecked" Type="bit" Nullable="false" />
+          <Property Name="Checked" Type="bit" Nullable="false" />
+          <Property Name="OrderComments" Type="nvarchar" MaxLength="255" />
+          <Property Name="SendMail" Type="bit" Nullable="false" />
+          <Property Name="IsInvoicedOrCancelled" Type="bit" />
+          <Property Name="Severity" Type="nvarchar" MaxLength="255" />
+          <Property Name="ETA" Type="datetime" />
+          <Property Name="TicketType" Type="nvarchar" MaxLength="255" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="OpportunityNumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ApprovedForPicking" Type="bit" Nullable="false" />
+          <Property Name="ApprovedForPacking" Type="bit" Nullable="false" />
+          <Property Name="PickByDate" Type="datetime" />
+          <Property Name="IsExport" Type="bit" Nullable="false" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrderSource" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsReadyToInvoice" Type="bit" Nullable="false" />
+          <Property Name="PaymentReceived" Type="bit" Nullable="false" />
+          <Property Name="Job_ActivityType" Type="int" />
+          <Property Name="Job_Invoice" Type="int" />
+          <Property Name="Job_JobStatus" Type="int" Nullable="false" />
+          <Property Name="Job_ProjectInventory" Type="int" />
+          <Property Name="Job_Project" Type="int" Nullable="false" />
+          <Property Name="Job_Site" Type="int" />
+        </EntityType>
+        <EntityType Name="Loads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoadNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateReceived" Type="datetime" Nullable="false" />
+          <Property Name="Connote" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReceivingUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="LoadStatus" Type="nvarchar" MaxLength="255" />
+          <Property Name="GRADate" Type="datetime" />
+          <Property Name="LoadTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ReferenceNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="EstimatedQty" Type="int" />
+          <Property Name="ActualQty" Type="int" />
+          <Property Name="UNGRADate" Type="datetime" />
+          <Property Name="UNGRAReason" Type="nvarchar" MaxLength="255" />
+          <Property Name="UNGRAUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="LoadSLA" Type="int" />
+          <Property Name="OutOfSLA" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReleaseDate" Type="datetime" />
+          <Property Name="PurchaseOrderNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateUploadedToDocsOnline" Type="datetime" />
+          <Property Name="GRAPath" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetimeoffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Load_Inventory3" Type="int" />
+          <Property Name="Load_Job" Type="int" />
+          <Property Name="Load_LeaseCustomer" Type="int" />
+          <Property Name="Load_ProjectInventory" Type="int" />
+          <Property Name="Load_Project" Type="int" Nullable="false" />
+          <Property Name="Load_Warehouse" Type="int" />
+        </EntityType>
+        <EntityType Name="MCQ_MobileAssetsFeed">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssetNumber" Type="int" />
+          <Property Name="MCQ_ID" Type="int" />
+          <Property Name="Customer_Contract_Start_Date" Type="datetime" />
+          <Property Name="ServiceNumber" Type="int" />
+          <Property Name="Swap_Assure_Eligible" Type="varchar" MaxLength="50" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="IMEI" Type="varchar" MaxLength="50" />
+          <Property Name="SSN" Type="varchar" MaxLength="50" />
+          <Property Name="reportId" Type="int" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ProjectType" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="WelcomeMessage" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CustomerPO" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingType" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="255" />
+          <Property Name="UrlSegment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Login" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsInactive" Type="bit" Nullable="false" />
+          <Property Name="MYOBCostCentre_CostCentreID" Type="int" Nullable="false" />
+          <Property Name="MYOBEmployee_EmployeeID" Type="int" Nullable="false" />
+          <Property Name="MYOBEmployee_EmployeeID1" Type="int" Nullable="false" />
+          <Property Name="MYOBSale_SaleID" Type="int" />
+          <Property Name="MYOBJob_JobID" Type="int" />
+          <Property Name="MYOBSupplier_SupplierID" Type="int" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="DocsOnlineFolder" Type="nvarchar" MaxLength="255" />
+          <Property Name="UseNetInvoicing" Type="bit" Nullable="false" />
+          <Property Name="IncludeClientRefInCafFilename" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+          <Property Name="SendJobStatusUpdate" Type="bit" Nullable="false" />
+          <Property Name="ClientReference" Type="nvarchar" MaxLength="255" />
+          <Property Name="IncludeClientReferenceInJobCompletionEmail" Type="bit" Nullable="false" />
+          <Property Name="SendLoadEmailNotification" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="Asset_Asset">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="0..1" />
+          <End Role="Assets1" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets1">
+              <PropertyRef Name="Asset_Asset2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_AssetStatus">
+          <End Role="AssetStatusSet" Type="Self.AssetStatusSet" Multiplicity="1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetStatusSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_AssetStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Bin">
+          <End Role="Bins" Type="Self.Bins" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bins">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Bin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Brand">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Brand1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_ItemType">
+          <End Role="ItemTypes" Type="Self.ItemTypes" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_ItemType1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Job">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Job1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Load">
+          <End Role="Loads" Type="Self.Loads" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Load2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Project">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="Assets" Type="Self.Assets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Bundle_AssetStatus">
+          <End Role="AssetStatusSet" Type="Self.AssetStatusSet" Multiplicity="0..1" />
+          <End Role="Bundles" Type="Self.Bundles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetStatusSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bundles">
+              <PropertyRef Name="Bundle_AssetStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Bundle_Project">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bundles" Type="Self.Bundles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bundles">
+              <PropertyRef Name="ServiceBundle_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Job_Project">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="Job_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobAsset_Asset">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="JobAssets" Type="Self.JobAssets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobAssets">
+              <PropertyRef Name="JobAsset_Asset" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobAsset_Job">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+          <End Role="JobAssets" Type="Self.JobAssets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobAssets">
+              <PropertyRef Name="JobAsset_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Load_Job">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1" />
+          <End Role="Loads" Type="Self.Loads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loads">
+              <PropertyRef Name="Load_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Load_Project">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="Loads" Type="Self.Loads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loads">
+              <PropertyRef Name="Load_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JMSModelStoreContainer">
+          <EntitySet Name="Assets" EntityType="Self.Assets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssetStatusSet" EntityType="Self.AssetStatusSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bins" EntityType="Self.Bins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bundles" EntityType="Self.Bundles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carriers" EntityType="Self.Carriers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colours" EntityType="Self.Colours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conditions" EntityType="Self.Conditions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Connectors" EntityType="Self.Connectors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPUs" EntityType="Self.CPUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPUSpeeds" EntityType="Self.CPUSpeeds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobAssets" EntityType="Self.JobAssets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loads" EntityType="Self.Loads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MCQ_MobileAssetsFeed" EntityType="Self.MCQ_MobileAssetsFeed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Asset_Asset" Association="Self.Asset_Asset">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Assets1" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_AssetStatus" Association="Self.Asset_AssetStatus">
+            <End Role="AssetStatusSet" EntitySet="AssetStatusSet" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Bin" Association="Self.Asset_Bin">
+            <End Role="Bins" EntitySet="Bins" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Brand" Association="Self.Asset_Brand">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_ItemType" Association="Self.Asset_ItemType">
+            <End Role="ItemTypes" EntitySet="ItemTypes" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Job" Association="Self.Asset_Job">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Load" Association="Self.Asset_Load">
+            <End Role="Loads" EntitySet="Loads" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Project" Association="Self.Asset_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Bundle_AssetStatus" Association="Self.Bundle_AssetStatus">
+            <End Role="AssetStatusSet" EntitySet="AssetStatusSet" />
+            <End Role="Bundles" EntitySet="Bundles" />
+          </AssociationSet>
+          <AssociationSet Name="Bundle_Project" Association="Self.Bundle_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Bundles" EntitySet="Bundles" />
+          </AssociationSet>
+          <AssociationSet Name="Job_Project" Association="Self.Job_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="JobAsset_Asset" Association="Self.JobAsset_Asset">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="JobAssets" EntitySet="JobAssets" />
+          </AssociationSet>
+          <AssociationSet Name="JobAsset_Job" Association="Self.JobAsset_Job">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobAssets" EntitySet="JobAssets" />
+          </AssociationSet>
+          <AssociationSet Name="Load_Job" Association="Self.Load_Job">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Loads" EntitySet="Loads" />
+          </AssociationSet>
+          <AssociationSet Name="Load_Project" Association="Self.Load_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Loads" EntitySet="Loads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ClientRef" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PONumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="Brand" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WMSItemType_ID" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WMSWarehouse_ID" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsSelected" Type="Boolean" Nullable="false" />
+          <Property Name="CustomField1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomField10" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="AssetID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsSerialised" Type="Boolean" Nullable="false" />
+          <Property Name="SKUCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="QtyOnHand" Type="Int32" Nullable="false" />
+          <Property Name="BuyPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ScreenSize" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsScanned" Type="Boolean" Nullable="false" />
+          <Property Name="AssetTag" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeskNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SellPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PalletNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationCustomer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationComment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationDate" Type="DateTime" Precision="3" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+          <Property Name="GRADate" Type="DateTime" Precision="3" />
+          <Property Name="DV" Type="Double" />
+          <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsScrap" Type="Boolean" Nullable="false" />
+          <Property Name="DateTested" Type="DateTime" Precision="3" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+          <Property Name="ReportId" Type="Int32" />
+          <Property Name="FormattedCondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Completeness" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Appearance" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Operability" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ConditionReportDate" Type="DateTime" Precision="3" />
+          <Property Name="PhysicalInspectionDate" Type="DateTime" Precision="3" />
+          <Property Name="PhysicalInspectionUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ConditionCount" Type="Int32" />
+          <Property Name="ExpectedSellPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DateBilled" Type="DateTime" Precision="3" />
+          <Property Name="DateRemitted" Type="DateTime" Precision="3" />
+          <Property Name="ClientAssetTag" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Asset_Asset2" Type="Int32" />
+          <Property Name="Asset_AssetStatus" Type="Int32" Nullable="false" />
+          <Property Name="Asset_AssetType" Type="Int32" />
+          <Property Name="Asset_Bin" Type="Int32" />
+          <Property Name="Asset_Brand1" Type="Int32" />
+          <Property Name="Asset_Dispatch1" Type="Int32" />
+          <Property Name="Asset_ItemType1" Type="Int32" />
+          <Property Name="Asset_JobBundle" Type="Int32" />
+          <Property Name="Asset_Job1" Type="Int32" />
+          <Property Name="Asset_Load2" Type="Int32" />
+          <Property Name="Asset_Model1" Type="Int32" />
+          <Property Name="Asset_StockCategory" Type="Int32" />
+          <Property Name="Asset_Project" Type="Int32" Nullable="false" />
+          <Property Name="Asset_ReservationCode" Type="Int32" />
+          <Property Name="Asset_StockCategory1" Type="Int32" />
+          <Property Name="Asset_Warehouse" Type="Int32" />
+          <Property Name="OldSSN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Assets1" Relationship="Self.Asset_Asset" FromRole="Assets" ToRole="Assets1" />
+          <NavigationProperty Name="Asset1" Relationship="Self.Asset_Asset" FromRole="Assets1" ToRole="Assets" />
+          <NavigationProperty Name="AssetStatusSet" Relationship="Self.Asset_AssetStatus" FromRole="Assets" ToRole="AssetStatusSet" />
+          <NavigationProperty Name="Bin" Relationship="Self.Asset_Bin" FromRole="Assets" ToRole="Bins" />
+          <NavigationProperty Name="Brand1" Relationship="Self.Asset_Brand" FromRole="Assets" ToRole="Brands" />
+          <NavigationProperty Name="ItemType" Relationship="Self.Asset_ItemType" FromRole="Assets" ToRole="ItemTypes" />
+          <NavigationProperty Name="Job" Relationship="Self.Asset_Job" FromRole="Assets" ToRole="Jobs" />
+          <NavigationProperty Name="Load" Relationship="Self.Asset_Load" FromRole="Assets" ToRole="Loads" />
+          <NavigationProperty Name="Project" Relationship="Self.Asset_Project" FromRole="Assets" ToRole="Projects" />
+          <NavigationProperty Name="JobAssets" Relationship="Self.JobAsset_Asset" FromRole="Assets" ToRole="JobAssets" />
+        </EntityType>
+        <EntityType Name="AssetStatusSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_AssetStatus" FromRole="AssetStatusSet" ToRole="Assets" />
+          <NavigationProperty Name="Bundles" Relationship="Self.Bundle_AssetStatus" FromRole="AssetStatusSet" ToRole="Bundles" />
+        </EntityType>
+        <EntityType Name="Bin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BinNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Bin_StorageArea" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_Bin" FromRole="Bins" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_Brand" FromRole="Brands" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="Bundle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="BundleType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FriendlyDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsInactive" Type="Boolean" Nullable="false" />
+          <Property Name="WMSSiteWarehouse_ID" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WMSInventory_Inventory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Bundle_AssetStatus" Type="Int32" />
+          <Property Name="Bundle_Inventory" Type="Int32" />
+          <Property Name="ServiceBundle_Project" Type="Int32" Nullable="false" />
+          <Property Name="Bundle_Site" Type="Int32" />
+          <Property Name="Bundle_Warehouse1" Type="Int32" />
+          <Property Name="ServiceBundle_Zone" Type="Int32" />
+          <NavigationProperty Name="AssetStatusSet" Relationship="Self.Bundle_AssetStatus" FromRole="Bundles" ToRole="AssetStatusSet" />
+          <NavigationProperty Name="Project" Relationship="Self.Bundle_Project" FromRole="Bundles" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Carrier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarrierName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiteName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Suburb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Colour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConditionType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConditionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BypassBlanccoTest" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Connector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="CPU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="CPUSpeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GHz" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GRADescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PickTime" Type="Int32" Nullable="false" />
+          <Property Name="DataWipe" Type="Boolean" Nullable="false" />
+          <Property Name="BlanccoTest" Type="Boolean" Nullable="false" />
+          <Property Name="MEFGRADescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ManualTest" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_ItemType" FromRole="ItemTypes" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="JobAsset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="IsDone" Type="Boolean" />
+          <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OldSerialNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDoneTech" Type="Boolean" />
+          <Property Name="IsDoneUser" Type="Boolean" />
+          <Property Name="IsSelected" Type="Boolean" Nullable="false" />
+          <Property Name="JobAsset_Asset" Type="Int32" Nullable="false" />
+          <Property Name="JobAsset_Dispatch" Type="Int32" />
+          <Property Name="JobAsset_JobBundle" Type="Int32" />
+          <Property Name="JobAsset_Job" Type="Int32" Nullable="false" />
+          <Property Name="JObTest" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Asset" Relationship="Self.JobAsset_Asset" FromRole="JobAssets" ToRole="Assets" />
+          <NavigationProperty Name="Job" Relationship="Self.JobAsset_Job" FromRole="JobAssets" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="JobNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="JobType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClientRef" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientPO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateReceived" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SLA" Type="DateTime" Precision="3" />
+          <Property Name="JobDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="JobTime" Type="DateTime" Precision="3" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+          <Property Name="WorkInstructions" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Building" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Floor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RunNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NetTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BundleTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AssetPurchaseTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceNotes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsSelected" Type="Boolean" Nullable="false" />
+          <Property Name="IsInactive" Type="Boolean" Nullable="false" />
+          <Property Name="MYOBCostCentre_CostCentreID" Type="Int32" Nullable="false" />
+          <Property Name="MYOBEmployee_EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="MYOBSale_SaleID" Type="Int32" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MYOBCustomer_CustomerID" Type="Int32" />
+          <Property Name="CustomerSignatureVector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerSignatureImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TechnicianSignatureVector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TechnicianSignatureImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WorkOrderUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IncomingFreightProvider" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IncomingConsignmentNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IncomingStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IncomingDateReceived" Type="DateTime" Precision="3" />
+          <Property Name="IncomingReceiverName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OutgoingFreightProvider" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OutgoingConsignmentNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OutgoingStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OutgoingDateReceived" Type="DateTime" Precision="3" />
+          <Property Name="OutgoingReceiverName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PostJobSLA" Type="DateTime" Precision="3" />
+          <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="JobMonth" Type="Int32" />
+          <Property Name="JobYear" Type="Int32" />
+          <Property Name="TechnicianName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WorkOrderExported" Type="Boolean" Nullable="false" />
+          <Property Name="DateSigned" Type="DateTime" Precision="3" />
+          <Property Name="DellType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsChecked" Type="Boolean" Nullable="false" />
+          <Property Name="Checked" Type="Boolean" Nullable="false" />
+          <Property Name="OrderComments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SendMail" Type="Boolean" Nullable="false" />
+          <Property Name="IsInvoicedOrCancelled" Type="Boolean" />
+          <Property Name="Severity" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ETA" Type="DateTime" Precision="3" />
+          <Property Name="TicketType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="OpportunityNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApprovedForPicking" Type="Boolean" Nullable="false" />
+          <Property Name="ApprovedForPacking" Type="Boolean" Nullable="false" />
+          <Property Name="PickByDate" Type="DateTime" Precision="3" />
+          <Property Name="IsExport" Type="Boolean" Nullable="false" />
+          <Property Name="Currency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsReadyToInvoice" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentReceived" Type="Boolean" Nullable="false" />
+          <Property Name="Job_ActivityType" Type="Int32" />
+          <Property Name="Job_Invoice" Type="Int32" />
+          <Property Name="Job_JobStatus" Type="Int32" Nullable="false" />
+          <Property Name="Job_ProjectInventory" Type="Int32" />
+          <Property Name="Job_Project" Type="Int32" Nullable="false" />
+          <Property Name="Job_Site" Type="Int32" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_Job" FromRole="Jobs" ToRole="Assets" />
+          <NavigationProperty Name="JobAssets" Relationship="Self.JobAsset_Job" FromRole="Jobs" ToRole="JobAssets" />
+          <NavigationProperty Name="Project" Relationship="Self.Job_Project" FromRole="Jobs" ToRole="Projects" />
+          <NavigationProperty Name="Loads" Relationship="Self.Load_Job" FromRole="Jobs" ToRole="Loads" />
+        </EntityType>
+        <EntityType Name="Load">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoadNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateReceived" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Connote" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReceivingUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LoadStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GRADate" Type="DateTime" Precision="3" />
+          <Property Name="LoadTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReferenceNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EstimatedQty" Type="Int32" />
+          <Property Name="ActualQty" Type="Int32" />
+          <Property Name="UNGRADate" Type="DateTime" Precision="3" />
+          <Property Name="UNGRAReason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UNGRAUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LoadSLA" Type="Int32" />
+          <Property Name="OutOfSLA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+          <Property Name="PurchaseOrderNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateUploadedToDocsOnline" Type="DateTime" Precision="3" />
+          <Property Name="GRAPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTimeOffset" Precision="7" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Load_Inventory3" Type="Int32" />
+          <Property Name="Load_Job" Type="Int32" />
+          <Property Name="Load_LeaseCustomer" Type="Int32" />
+          <Property Name="Load_ProjectInventory" Type="Int32" />
+          <Property Name="Load_Project" Type="Int32" Nullable="false" />
+          <Property Name="Load_Warehouse" Type="Int32" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_Load" FromRole="Loads" ToRole="Assets" />
+          <NavigationProperty Name="Job" Relationship="Self.Load_Job" FromRole="Loads" ToRole="Jobs" />
+          <NavigationProperty Name="Project" Relationship="Self.Load_Project" FromRole="Loads" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="MCQ_MobileAssetsFeed">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetNumber" Type="Int32" />
+          <Property Name="MCQ_ID" Type="Int32" />
+          <Property Name="Customer_Contract_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="ServiceNumber" Type="Int32" />
+          <Property Name="Swap_Assure_Eligible" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IMEI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reportId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ProjectType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WelcomeMessage" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Summary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UrlSegment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsInactive" Type="Boolean" Nullable="false" />
+          <Property Name="MYOBCostCentre_CostCentreID" Type="Int32" Nullable="false" />
+          <Property Name="MYOBEmployee_EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="MYOBEmployee_EmployeeID1" Type="Int32" Nullable="false" />
+          <Property Name="MYOBSale_SaleID" Type="Int32" />
+          <Property Name="MYOBJob_JobID" Type="Int32" />
+          <Property Name="MYOBSupplier_SupplierID" Type="Int32" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DocsOnlineFolder" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UseNetInvoicing" Type="Boolean" Nullable="false" />
+          <Property Name="IncludeClientRefInCafFilename" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SendJobStatusUpdate" Type="Boolean" Nullable="false" />
+          <Property Name="ClientReference" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IncludeClientReferenceInJobCompletionEmail" Type="Boolean" Nullable="false" />
+          <Property Name="SendLoadEmailNotification" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Assets" Relationship="Self.Asset_Project" FromRole="Projects" ToRole="Assets" />
+          <NavigationProperty Name="Bundles" Relationship="Self.Bundle_Project" FromRole="Projects" ToRole="Bundles" />
+          <NavigationProperty Name="Jobs" Relationship="Self.Job_Project" FromRole="Projects" ToRole="Jobs" />
+          <NavigationProperty Name="Loads" Relationship="Self.Load_Project" FromRole="Projects" ToRole="Loads" />
+        </EntityType>
+        <Association Name="Asset_Asset">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="0..1" />
+          <End Role="Assets1" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets1">
+              <PropertyRef Name="Asset_Asset2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_AssetStatus">
+          <End Role="AssetStatusSet" Type="Self.AssetStatusSet" Multiplicity="1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetStatusSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_AssetStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Bin">
+          <End Role="Bins" Type="Self.Bin" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bins">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Bin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Brand">
+          <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Brand1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_ItemType">
+          <End Role="ItemTypes" Type="Self.ItemType" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_ItemType1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Job">
+          <End Role="Jobs" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Job1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Load">
+          <End Role="Loads" Type="Self.Load" Multiplicity="0..1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Load2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Asset_Project">
+          <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+          <End Role="Assets" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assets">
+              <PropertyRef Name="Asset_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobAsset_Asset">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="1" />
+          <End Role="JobAssets" Type="Self.JobAsset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobAssets">
+              <PropertyRef Name="JobAsset_Asset" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Bundle_AssetStatus">
+          <End Role="AssetStatusSet" Type="Self.AssetStatusSet" Multiplicity="0..1" />
+          <End Role="Bundles" Type="Self.Bundle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetStatusSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bundles">
+              <PropertyRef Name="Bundle_AssetStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Bundle_Project">
+          <End Role="Projects" Type="Self.Project" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bundles" Type="Self.Bundle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bundles">
+              <PropertyRef Name="ServiceBundle_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobAsset_Job">
+          <End Role="Jobs" Type="Self.Job" Multiplicity="1" />
+          <End Role="JobAssets" Type="Self.JobAsset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobAssets">
+              <PropertyRef Name="JobAsset_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Job_Project">
+          <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="Job_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Load_Job">
+          <End Role="Jobs" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="Loads" Type="Self.Load" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loads">
+              <PropertyRef Name="Load_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Load_Project">
+          <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+          <End Role="Loads" Type="Self.Load" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loads">
+              <PropertyRef Name="Load_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assets" EntityType="Self.Asset" />
+          <EntitySet Name="AssetStatusSets" EntityType="Self.AssetStatusSet" />
+          <EntitySet Name="Bins" EntityType="Self.Bin" />
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Bundles" EntityType="Self.Bundle" />
+          <EntitySet Name="Carriers" EntityType="Self.Carrier" />
+          <EntitySet Name="Colours" EntityType="Self.Colour" />
+          <EntitySet Name="Conditions" EntityType="Self.Condition" />
+          <EntitySet Name="Connectors" EntityType="Self.Connector" />
+          <EntitySet Name="CPUs" EntityType="Self.CPU" />
+          <EntitySet Name="CPUSpeeds" EntityType="Self.CPUSpeed" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemType" />
+          <EntitySet Name="JobAssets" EntityType="Self.JobAsset" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="Loads" EntityType="Self.Load" />
+          <EntitySet Name="MCQ_MobileAssetsFeed" EntityType="Self.MCQ_MobileAssetsFeed" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <AssociationSet Name="Asset_Asset" Association="Self.Asset_Asset">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Assets1" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_AssetStatus" Association="Self.Asset_AssetStatus">
+            <End Role="AssetStatusSet" EntitySet="AssetStatusSets" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Bin" Association="Self.Asset_Bin">
+            <End Role="Bins" EntitySet="Bins" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Brand" Association="Self.Asset_Brand">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_ItemType" Association="Self.Asset_ItemType">
+            <End Role="ItemTypes" EntitySet="ItemTypes" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Job" Association="Self.Asset_Job">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Load" Association="Self.Asset_Load">
+            <End Role="Loads" EntitySet="Loads" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="Asset_Project" Association="Self.Asset_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Assets" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="JobAsset_Asset" Association="Self.JobAsset_Asset">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="JobAssets" EntitySet="JobAssets" />
+          </AssociationSet>
+          <AssociationSet Name="Bundle_AssetStatus" Association="Self.Bundle_AssetStatus">
+            <End Role="AssetStatusSet" EntitySet="AssetStatusSets" />
+            <End Role="Bundles" EntitySet="Bundles" />
+          </AssociationSet>
+          <AssociationSet Name="Bundle_Project" Association="Self.Bundle_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Bundles" EntitySet="Bundles" />
+          </AssociationSet>
+          <AssociationSet Name="JobAsset_Job" Association="Self.JobAsset_Job">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobAssets" EntitySet="JobAssets" />
+          </AssociationSet>
+          <AssociationSet Name="Job_Project" Association="Self.Job_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="Load_Job" Association="Self.Load_Job">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Loads" EntitySet="Loads" />
+          </AssociationSet>
+          <AssociationSet Name="Load_Project" Association="Self.Load_Project">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Loads" EntitySet="Loads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JMSModelStoreContainer" CdmEntityContainer="JMSEntities">
+          <EntitySetMapping Name="Assets">
+            <EntityTypeMapping TypeName="JMSModel.Asset">
+              <MappingFragment StoreEntitySet="Assets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ClientRef" ColumnName="ClientRef" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="WMSItemType_ID" ColumnName="WMSItemType_ID" />
+                <ScalarProperty Name="WMSWarehouse_ID" ColumnName="WMSWarehouse_ID" />
+                <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+                <ScalarProperty Name="CustomField1" ColumnName="CustomField1" />
+                <ScalarProperty Name="CustomField2" ColumnName="CustomField2" />
+                <ScalarProperty Name="CustomField3" ColumnName="CustomField3" />
+                <ScalarProperty Name="CustomField4" ColumnName="CustomField4" />
+                <ScalarProperty Name="CustomField5" ColumnName="CustomField5" />
+                <ScalarProperty Name="CustomField6" ColumnName="CustomField6" />
+                <ScalarProperty Name="CustomField7" ColumnName="CustomField7" />
+                <ScalarProperty Name="CustomField8" ColumnName="CustomField8" />
+                <ScalarProperty Name="CustomField9" ColumnName="CustomField9" />
+                <ScalarProperty Name="CustomField10" ColumnName="CustomField10" />
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="IsSerialised" ColumnName="IsSerialised" />
+                <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
+                <ScalarProperty Name="QtyOnHand" ColumnName="QtyOnHand" />
+                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="ScreenSize" ColumnName="ScreenSize" />
+                <ScalarProperty Name="IsScanned" ColumnName="IsScanned" />
+                <ScalarProperty Name="AssetTag" ColumnName="AssetTag" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DeskNumber" ColumnName="DeskNumber" />
+                <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+                <ScalarProperty Name="PalletNo" ColumnName="PalletNo" />
+                <ScalarProperty Name="ReservationCustomer" ColumnName="ReservationCustomer" />
+                <ScalarProperty Name="ReservationComment" ColumnName="ReservationComment" />
+                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="GRADate" ColumnName="GRADate" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="IsScrap" ColumnName="IsScrap" />
+                <ScalarProperty Name="DateTested" ColumnName="DateTested" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="FormattedCondition" ColumnName="FormattedCondition" />
+                <ScalarProperty Name="Completeness" ColumnName="Completeness" />
+                <ScalarProperty Name="Appearance" ColumnName="Appearance" />
+                <ScalarProperty Name="Services" ColumnName="Services" />
+                <ScalarProperty Name="Operability" ColumnName="Operability" />
+                <ScalarProperty Name="ConditionReportDate" ColumnName="ConditionReportDate" />
+                <ScalarProperty Name="PhysicalInspectionDate" ColumnName="PhysicalInspectionDate" />
+                <ScalarProperty Name="PhysicalInspectionUser" ColumnName="PhysicalInspectionUser" />
+                <ScalarProperty Name="ConditionCount" ColumnName="ConditionCount" />
+                <ScalarProperty Name="ExpectedSellPrice" ColumnName="ExpectedSellPrice" />
+                <ScalarProperty Name="DateBilled" ColumnName="DateBilled" />
+                <ScalarProperty Name="DateRemitted" ColumnName="DateRemitted" />
+                <ScalarProperty Name="ClientAssetTag" ColumnName="ClientAssetTag" />
+                <ScalarProperty Name="Asset_Asset2" ColumnName="Asset_Asset2" />
+                <ScalarProperty Name="Asset_AssetStatus" ColumnName="Asset_AssetStatus" />
+                <ScalarProperty Name="Asset_AssetType" ColumnName="Asset_AssetType" />
+                <ScalarProperty Name="Asset_Bin" ColumnName="Asset_Bin" />
+                <ScalarProperty Name="Asset_Brand1" ColumnName="Asset_Brand1" />
+                <ScalarProperty Name="Asset_Dispatch1" ColumnName="Asset_Dispatch1" />
+                <ScalarProperty Name="Asset_ItemType1" ColumnName="Asset_ItemType1" />
+                <ScalarProperty Name="Asset_JobBundle" ColumnName="Asset_JobBundle" />
+                <ScalarProperty Name="Asset_Job1" ColumnName="Asset_Job1" />
+                <ScalarProperty Name="Asset_Load2" ColumnName="Asset_Load2" />
+                <ScalarProperty Name="Asset_Model1" ColumnName="Asset_Model1" />
+                <ScalarProperty Name="Asset_StockCategory" ColumnName="Asset_StockCategory" />
+                <ScalarProperty Name="Asset_Project" ColumnName="Asset_Project" />
+                <ScalarProperty Name="Asset_ReservationCode" ColumnName="Asset_ReservationCode" />
+                <ScalarProperty Name="Asset_StockCategory1" ColumnName="Asset_StockCategory1" />
+                <ScalarProperty Name="Asset_Warehouse" ColumnName="Asset_Warehouse" />
+                <ScalarProperty Name="OldSSN" ColumnName="OldSSN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetStatusSets">
+            <EntityTypeMapping TypeName="JMSModel.AssetStatusSet">
+              <MappingFragment StoreEntitySet="AssetStatusSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bins">
+            <EntityTypeMapping TypeName="JMSModel.Bin">
+              <MappingFragment StoreEntitySet="Bins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Bin_StorageArea" ColumnName="Bin_StorageArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="JMSModel.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bundles">
+            <EntityTypeMapping TypeName="JMSModel.Bundle">
+              <MappingFragment StoreEntitySet="Bundles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="BundleType" ColumnName="BundleType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FriendlyDescription" ColumnName="FriendlyDescription" />
+                <ScalarProperty Name="IsInactive" ColumnName="IsInactive" />
+                <ScalarProperty Name="WMSSiteWarehouse_ID" ColumnName="WMSSiteWarehouse_ID" />
+                <ScalarProperty Name="WMSInventory_Inventory" ColumnName="WMSInventory_Inventory" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="Bundle_AssetStatus" ColumnName="Bundle_AssetStatus" />
+                <ScalarProperty Name="Bundle_Inventory" ColumnName="Bundle_Inventory" />
+                <ScalarProperty Name="ServiceBundle_Project" ColumnName="ServiceBundle_Project" />
+                <ScalarProperty Name="Bundle_Site" ColumnName="Bundle_Site" />
+                <ScalarProperty Name="Bundle_Warehouse1" ColumnName="Bundle_Warehouse1" />
+                <ScalarProperty Name="ServiceBundle_Zone" ColumnName="ServiceBundle_Zone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carriers">
+            <EntityTypeMapping TypeName="JMSModel.Carrier">
+              <MappingFragment StoreEntitySet="Carriers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarrierName" ColumnName="CarrierName" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colours">
+            <EntityTypeMapping TypeName="JMSModel.Colour">
+              <MappingFragment StoreEntitySet="Colours">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conditions">
+            <EntityTypeMapping TypeName="JMSModel.Condition">
+              <MappingFragment StoreEntitySet="Conditions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ConditionType" ColumnName="ConditionType" />
+                <ScalarProperty Name="ConditionName" ColumnName="ConditionName" />
+                <ScalarProperty Name="BypassBlanccoTest" ColumnName="BypassBlanccoTest" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Connectors">
+            <EntityTypeMapping TypeName="JMSModel.Connector">
+              <MappingFragment StoreEntitySet="Connectors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPUs">
+            <EntityTypeMapping TypeName="JMSModel.CPU">
+              <MappingFragment StoreEntitySet="CPUs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPUSpeeds">
+            <EntityTypeMapping TypeName="JMSModel.CPUSpeed">
+              <MappingFragment StoreEntitySet="CPUSpeeds">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GHz" ColumnName="GHz" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes">
+            <EntityTypeMapping TypeName="JMSModel.ItemType">
+              <MappingFragment StoreEntitySet="ItemTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
+                <ScalarProperty Name="GRADescription" ColumnName="GRADescription" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="PickTime" ColumnName="PickTime" />
+                <ScalarProperty Name="DataWipe" ColumnName="DataWipe" />
+                <ScalarProperty Name="BlanccoTest" ColumnName="BlanccoTest" />
+                <ScalarProperty Name="MEFGRADescription" ColumnName="MEFGRADescription" />
+                <ScalarProperty Name="ManualTest" ColumnName="ManualTest" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobAssets">
+            <EntityTypeMapping TypeName="JMSModel.JobAsset">
+              <MappingFragment StoreEntitySet="JobAssets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="IsDone" ColumnName="IsDone" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="OldSerialNumber" ColumnName="OldSerialNumber" />
+                <ScalarProperty Name="IsDoneTech" ColumnName="IsDoneTech" />
+                <ScalarProperty Name="IsDoneUser" ColumnName="IsDoneUser" />
+                <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+                <ScalarProperty Name="JobAsset_Asset" ColumnName="JobAsset_Asset" />
+                <ScalarProperty Name="JobAsset_Dispatch" ColumnName="JobAsset_Dispatch" />
+                <ScalarProperty Name="JobAsset_JobBundle" ColumnName="JobAsset_JobBundle" />
+                <ScalarProperty Name="JobAsset_Job" ColumnName="JobAsset_Job" />
+                <ScalarProperty Name="JObTest" ColumnName="JObTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="JMSModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="JobNo" ColumnName="JobNo" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="ClientRef" ColumnName="ClientRef" />
+                <ScalarProperty Name="ClientPO" ColumnName="ClientPO" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="SLA" ColumnName="SLA" />
+                <ScalarProperty Name="JobDate" ColumnName="JobDate" />
+                <ScalarProperty Name="JobTime" ColumnName="JobTime" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="WorkInstructions" ColumnName="WorkInstructions" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="RunNo" ColumnName="RunNo" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NetTotal" ColumnName="NetTotal" />
+                <ScalarProperty Name="BundleTotal" ColumnName="BundleTotal" />
+                <ScalarProperty Name="AssetPurchaseTotal" ColumnName="AssetPurchaseTotal" />
+                <ScalarProperty Name="InvoiceNotes" ColumnName="InvoiceNotes" />
+                <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+                <ScalarProperty Name="IsInactive" ColumnName="IsInactive" />
+                <ScalarProperty Name="MYOBCostCentre_CostCentreID" ColumnName="MYOBCostCentre_CostCentreID" />
+                <ScalarProperty Name="MYOBEmployee_EmployeeID" ColumnName="MYOBEmployee_EmployeeID" />
+                <ScalarProperty Name="MYOBSale_SaleID" ColumnName="MYOBSale_SaleID" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="MYOBCustomer_CustomerID" ColumnName="MYOBCustomer_CustomerID" />
+                <ScalarProperty Name="CustomerSignatureVector" ColumnName="CustomerSignatureVector" />
+                <ScalarProperty Name="CustomerSignatureImage" ColumnName="CustomerSignatureImage" />
+                <ScalarProperty Name="TechnicianSignatureVector" ColumnName="TechnicianSignatureVector" />
+                <ScalarProperty Name="TechnicianSignatureImage" ColumnName="TechnicianSignatureImage" />
+                <ScalarProperty Name="WorkOrderUrl" ColumnName="WorkOrderUrl" />
+                <ScalarProperty Name="IncomingFreightProvider" ColumnName="IncomingFreightProvider" />
+                <ScalarProperty Name="IncomingConsignmentNo" ColumnName="IncomingConsignmentNo" />
+                <ScalarProperty Name="IncomingStatus" ColumnName="IncomingStatus" />
+                <ScalarProperty Name="IncomingDateReceived" ColumnName="IncomingDateReceived" />
+                <ScalarProperty Name="IncomingReceiverName" ColumnName="IncomingReceiverName" />
+                <ScalarProperty Name="OutgoingFreightProvider" ColumnName="OutgoingFreightProvider" />
+                <ScalarProperty Name="OutgoingConsignmentNo" ColumnName="OutgoingConsignmentNo" />
+                <ScalarProperty Name="OutgoingStatus" ColumnName="OutgoingStatus" />
+                <ScalarProperty Name="OutgoingDateReceived" ColumnName="OutgoingDateReceived" />
+                <ScalarProperty Name="OutgoingReceiverName" ColumnName="OutgoingReceiverName" />
+                <ScalarProperty Name="PostJobSLA" ColumnName="PostJobSLA" />
+                <ScalarProperty Name="InternalComments" ColumnName="InternalComments" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="JobMonth" ColumnName="JobMonth" />
+                <ScalarProperty Name="JobYear" ColumnName="JobYear" />
+                <ScalarProperty Name="TechnicianName" ColumnName="TechnicianName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="WorkOrderExported" ColumnName="WorkOrderExported" />
+                <ScalarProperty Name="DateSigned" ColumnName="DateSigned" />
+                <ScalarProperty Name="DellType" ColumnName="DellType" />
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+                <ScalarProperty Name="Checked" ColumnName="Checked" />
+                <ScalarProperty Name="OrderComments" ColumnName="OrderComments" />
+                <ScalarProperty Name="SendMail" ColumnName="SendMail" />
+                <ScalarProperty Name="IsInvoicedOrCancelled" ColumnName="IsInvoicedOrCancelled" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="TicketType" ColumnName="TicketType" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="OpportunityNumber" ColumnName="OpportunityNumber" />
+                <ScalarProperty Name="ApprovedForPicking" ColumnName="ApprovedForPicking" />
+                <ScalarProperty Name="ApprovedForPacking" ColumnName="ApprovedForPacking" />
+                <ScalarProperty Name="PickByDate" ColumnName="PickByDate" />
+                <ScalarProperty Name="IsExport" ColumnName="IsExport" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderSource" ColumnName="OrderSource" />
+                <ScalarProperty Name="IsReadyToInvoice" ColumnName="IsReadyToInvoice" />
+                <ScalarProperty Name="PaymentReceived" ColumnName="PaymentReceived" />
+                <ScalarProperty Name="Job_ActivityType" ColumnName="Job_ActivityType" />
+                <ScalarProperty Name="Job_Invoice" ColumnName="Job_Invoice" />
+                <ScalarProperty Name="Job_JobStatus" ColumnName="Job_JobStatus" />
+                <ScalarProperty Name="Job_ProjectInventory" ColumnName="Job_ProjectInventory" />
+                <ScalarProperty Name="Job_Project" ColumnName="Job_Project" />
+                <ScalarProperty Name="Job_Site" ColumnName="Job_Site" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loads">
+            <EntityTypeMapping TypeName="JMSModel.Load">
+              <MappingFragment StoreEntitySet="Loads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoadNo" ColumnName="LoadNo" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="Connote" ColumnName="Connote" />
+                <ScalarProperty Name="ReceivingUser" ColumnName="ReceivingUser" />
+                <ScalarProperty Name="LoadStatus" ColumnName="LoadStatus" />
+                <ScalarProperty Name="GRADate" ColumnName="GRADate" />
+                <ScalarProperty Name="LoadTotal" ColumnName="LoadTotal" />
+                <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="EstimatedQty" ColumnName="EstimatedQty" />
+                <ScalarProperty Name="ActualQty" ColumnName="ActualQty" />
+                <ScalarProperty Name="UNGRADate" ColumnName="UNGRADate" />
+                <ScalarProperty Name="UNGRAReason" ColumnName="UNGRAReason" />
+                <ScalarProperty Name="UNGRAUser" ColumnName="UNGRAUser" />
+                <ScalarProperty Name="LoadSLA" ColumnName="LoadSLA" />
+                <ScalarProperty Name="OutOfSLA" ColumnName="OutOfSLA" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="PurchaseOrderNo" ColumnName="PurchaseOrderNo" />
+                <ScalarProperty Name="DateUploadedToDocsOnline" ColumnName="DateUploadedToDocsOnline" />
+                <ScalarProperty Name="GRAPath" ColumnName="GRAPath" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Load_Inventory3" ColumnName="Load_Inventory3" />
+                <ScalarProperty Name="Load_Job" ColumnName="Load_Job" />
+                <ScalarProperty Name="Load_LeaseCustomer" ColumnName="Load_LeaseCustomer" />
+                <ScalarProperty Name="Load_ProjectInventory" ColumnName="Load_ProjectInventory" />
+                <ScalarProperty Name="Load_Project" ColumnName="Load_Project" />
+                <ScalarProperty Name="Load_Warehouse" ColumnName="Load_Warehouse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MCQ_MobileAssetsFeed">
+            <EntityTypeMapping TypeName="JMSModel.MCQ_MobileAssetsFeed">
+              <MappingFragment StoreEntitySet="MCQ_MobileAssetsFeed">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
+                <ScalarProperty Name="MCQ_ID" ColumnName="MCQ_ID" />
+                <ScalarProperty Name="Customer_Contract_Start_Date" ColumnName="Customer_Contract_Start_Date" />
+                <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
+                <ScalarProperty Name="Swap_Assure_Eligible" ColumnName="Swap_Assure_Eligible" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="reportId" ColumnName="reportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="JMSModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="WelcomeMessage" ColumnName="WelcomeMessage" />
+                <ScalarProperty Name="CustomerPO" ColumnName="CustomerPO" />
+                <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="UrlSegment" ColumnName="UrlSegment" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="IsInactive" ColumnName="IsInactive" />
+                <ScalarProperty Name="MYOBCostCentre_CostCentreID" ColumnName="MYOBCostCentre_CostCentreID" />
+                <ScalarProperty Name="MYOBEmployee_EmployeeID" ColumnName="MYOBEmployee_EmployeeID" />
+                <ScalarProperty Name="MYOBEmployee_EmployeeID1" ColumnName="MYOBEmployee_EmployeeID1" />
+                <ScalarProperty Name="MYOBSale_SaleID" ColumnName="MYOBSale_SaleID" />
+                <ScalarProperty Name="MYOBJob_JobID" ColumnName="MYOBJob_JobID" />
+                <ScalarProperty Name="MYOBSupplier_SupplierID" ColumnName="MYOBSupplier_SupplierID" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="DocsOnlineFolder" ColumnName="DocsOnlineFolder" />
+                <ScalarProperty Name="UseNetInvoicing" ColumnName="UseNetInvoicing" />
+                <ScalarProperty Name="IncludeClientRefInCafFilename" ColumnName="IncludeClientRefInCafFilename" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="SendJobStatusUpdate" ColumnName="SendJobStatusUpdate" />
+                <ScalarProperty Name="ClientReference" ColumnName="ClientReference" />
+                <ScalarProperty Name="IncludeClientReferenceInJobCompletionEmail" ColumnName="IncludeClientReferenceInJobCompletionEmail" />
+                <ScalarProperty Name="SendLoadEmailNotification" ColumnName="SendLoadEmailNotification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
