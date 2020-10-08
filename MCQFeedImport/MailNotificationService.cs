@@ -16,7 +16,7 @@ namespace MCQFeedImport
             MailDefinition md = new MailDefinition();
             md.BodyFileName = templateName;          
             md.From = ConfigurationManager.AppSettings["SmtpFromMail"];
-            md.Subject = "MCQ Feed File Process Notification"; ;
+            md.Subject = "MCQ Feed File Process Notification";
             md.IsBodyHtml = true;
             MailMessage msg = md.CreateMailMessage(@sendTo, null, new System.Web.UI.Control());
             foreach (var r in replacements)

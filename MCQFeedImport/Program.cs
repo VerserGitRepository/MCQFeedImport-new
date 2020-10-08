@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DocumentFormat.OpenXml.Packaging;
@@ -82,8 +82,11 @@ namespace MCQFeedImport
 
         public static void SendMailnotification(FeedResponseModel responsemodel)
         {
-            string templatePath = Path.Combine(@"C:\VerserSourceCodeGitRepo\MCQFeedImport-new\MCQFeedImport\MailTemplate");
-            if (true)
+            //This filepath needs to be changed
+            //string templatePath = Path.Combine(@"C:\VerserSourceCodeGitRepo\MCQFeedImport-new\MCQFeedImport\MailTemplate");
+            string workingDirectory = Environment.CurrentDirectory;
+            string templatePath = Path.Combine(Directory.GetParent(workingDirectory).Parent.FullName + @"\MailTemplate");
+            if (templatePath !=null && responsemodel !=null)
             {
                 Dictionary<string, string> replacements = new Dictionary<string, string>();
                 replacements.Add("FileName", responsemodel.FeedFileName);
