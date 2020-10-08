@@ -1,20 +1,16 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Configuration;
-using System.Web;
-using System.Threading.Tasks;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.IO;
+
 namespace MCQFeedImport
 {
     class Program
     {
         static void Main(string[] args)
         {
-
             string filepath = System.IO.File.ReadAllText(@"C:\Feed\FileName.txt");
             //Console.WriteLine(filepath);
             if (!string.IsNullOrEmpty(filepath))
@@ -29,7 +25,6 @@ namespace MCQFeedImport
                 Console.WriteLine("####### Please Select Feed Import Options ###########");
                 Console.WriteLine();
                 Console.ResetColor();
-
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("[ 1 ]  Import Telstra New Feed");
                 Console.WriteLine();
@@ -43,6 +38,8 @@ namespace MCQFeedImport
                 Console.WriteLine();
                 Console.WriteLine("[ 6 ]   Telstra Feed Reprocess");
                 Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("[ 7 ]   Mail Testing");
                 Console.ResetColor();
                 Console.WriteLine("#####################################################");
                 int option = 0;
@@ -71,13 +68,43 @@ namespace MCQFeedImport
                 {
                     TelstraFullFeedReprocess(filepath);
                 }
+                else if (option == 7)
+                {
+                    var responsemodel = new FeedResponseModel {
+                        IsFileProcessSuccessful = true,
+                        FeedFileName = "Testing feed File name by Basan [Future Feed Processor System Will send Detailed notifation ] ",
+                        FeedFileCount = 0
+                    };
+                    SendMailnotification(responsemodel);
+                }
             }
         }
+
+        public static void SendMailnotification(FeedResponseModel responsemodel)
+        {
+            string templatePath = Path.Combine(@"C:\VerserSourceCodeGitRepo\MCQFeedImport-new\MCQFeedImport\MailTemplate");
+            if (true)
+            {
+                Dictionary<string, string> replacements = new Dictionary<string, string>();
+                replacements.Add("FileName", responsemodel.FeedFileName);
+                replacements.Add("FeedCount", responsemodel.FeedFileCount.ToString());
+                replacements.Add("Date", DateTime.Now.ToString());
+                try
+                {
+                    MailNotificationService.SendMail(String.Format("{0}\\{1}", templatePath, "FeedUpdatenotification.htm"), replacements);
+                }
+                catch (Exception ex)
+                {
+                    string LogError = String.Format("Sending email failed {0}", ex.Message);
+                }
+            }
+        }
+
         public static void TelstraNewFeedimport(string filepath)
         {
+            var responsemodel = new FeedResponseModel();
             try
             {
-
                 using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filepath, false))
                 {
                     //create the object for workbook part  
@@ -133,38 +160,38 @@ namespace MCQFeedImport
                             break;
                         }
                     }
+                    responsemodel.FeedFileCount = assetrow;
+                    responsemodel.FeedFileName = filepath;
+                    responsemodel.IsFileProcessSuccessful = true;
                 }
-
             }
             catch (Exception ex)
             {
+                responsemodel.IsFileProcessSuccessful = false;
                 Console.WriteLine(ex.Message);
             }
+            if (responsemodel.IsFileProcessSuccessful)
+            {
+                SendMailnotification(responsemodel);
+            }
         }
-
         public static void TelstraChangeFeedimport(string filepath)
         {
+            var responsemodel = new FeedResponseModel();
             try
-
             {
-
                 using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filepath, false))
                 {
                     //create the object for workbook part  
                     WorkbookPart wbPart = doc.WorkbookPart;
-
                     //statement to get the sheet object  
                     Sheet mysheet = (Sheet)doc.WorkbookPart.Workbook.Sheets.ChildElements.GetItem(0);
-
                     //statement to get the worksheet object by using the sheet id  
                     Worksheet Worksheet = ((WorksheetPart)wbPart.GetPartById(mysheet.Id)).Worksheet;
-
                     //Note: worksheet has 8 children and the first child[1] = sheetviewdimension,....child[4]=sheetdata  
                     int wkschildno = 4;
-
                     //statement to get the sheetdata which contains the rows and cell in table  
                     SheetData Rows = (SheetData)Worksheet.ChildElements.GetItem(wkschildno);
-
                     //List<MCQ_MobileAssetsFeed> assetList = new List<MCQ_MobileAssetsFeed>();
                     int assetrow = 1;
                     for (int row = 1; row < Rows.Count(); row++)
@@ -185,7 +212,6 @@ namespace MCQFeedImport
                                 ).FirstOrDefault();
 
                                 var ChangedIMEI = BlancoContext.MCQFeed.Where(x => x.AssetNumber == assetNo && x.IMEI != IMEINO).FirstOrDefault();
-
                                 if (ChangedServicNumber != null)
                                 {
                                     ChangedServicNumber.ServiceNumber = serviceNO;
@@ -206,7 +232,6 @@ namespace MCQFeedImport
                                         ChangedIMEI.UpdatedDate = DateTime.Now;
                                         BlancoContext.SaveChanges();
                                     }
-
                                 }
                             }
                             Console.WriteLine("No Of Assets processing Count... " + assetrow++);
@@ -216,16 +241,23 @@ namespace MCQFeedImport
                             break;
                         }
                     }
+                    responsemodel.FeedFileCount = assetrow;
+                    responsemodel.FeedFileName = filepath;
+                    responsemodel.IsFileProcessSuccessful = true;
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            if (responsemodel.IsFileProcessSuccessful)
+            {
+                SendMailnotification(responsemodel);
+            }
         }
         public static void OptusNewFeedimport(string filepath)
         {
+            var responsemodel = new FeedResponseModel();
             try
             {
 
@@ -285,6 +317,9 @@ namespace MCQFeedImport
                             break;
                         }
                     }
+                    responsemodel.FeedFileCount = assetrow;
+                    responsemodel.FeedFileName = filepath;
+                    responsemodel.IsFileProcessSuccessful = true;
                 }
 
             }
@@ -292,40 +327,33 @@ namespace MCQFeedImport
             {
                 Console.WriteLine(ex.Message);
             }
-        }
 
+            if (responsemodel.IsFileProcessSuccessful)
+            {
+                SendMailnotification(responsemodel);
+            }
+        }
         public static void OptusChangeFeedimport(string filepath)
         {
+            var responsemodel = new FeedResponseModel();
             try
-
             {
 
                 using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filepath, false))
                 {
-                    //create the object for workbook part  
+
                     WorkbookPart wbPart = doc.WorkbookPart;
-
-                    //statement to get the sheet object  
                     Sheet mysheet = (Sheet)doc.WorkbookPart.Workbook.Sheets.ChildElements.GetItem(0);
-
-                    //statement to get the worksheet object by using the sheet id  
                     Worksheet Worksheet = ((WorksheetPart)wbPart.GetPartById(mysheet.Id)).Worksheet;
-
-                    //Note: worksheet has 8 children and the first child[1] = sheetviewdimension,....child[4]=sheetdata  
                     int wkschildno = 5;
-
-                    //statement to get the sheetdata which contains the rows and cell in table  
                     SheetData Rows = (SheetData)Worksheet.ChildElements.GetItem(wkschildno);
-
-                    //List<MCQ_MobileAssetsFeed> assetList = new List<MCQ_MobileAssetsFeed>();
                     int assetrow = 1;
                     for (int row = 1; row < Rows.Count(); row++)
                     {
-                        //getting the row as per the specified index of getitem method  
                         Row currentrow = (Row)Rows.ChildElements.GetItem(row);
                         if (!string.IsNullOrEmpty(GetCellValue((Cell)currentrow.ChildElements.GetItem(0), wbPart)))
                         {
-                            //using (JMSEntities jms = new JMSEntities())
+
                             using (Blancco BlancoContext = new Blancco())
                             {
                                 int assetNo = Convert.ToInt32(GetCellValue((Cell)currentrow.ChildElements.GetItem(0), wbPart));
@@ -338,8 +366,6 @@ namespace MCQFeedImport
                                     .Where(x => x.AssetNumber == assetNo && x.ServiceNumber != serviceNO).FirstOrDefault();
 
                                 var ChangedIMEI = BlancoContext.MCQFeed.Where(x => x.AssetNumber == assetNo && x.IMEI != IMEINO).FirstOrDefault();
-
-
                                 if (ChangedServicNumber != null)
                                 {
                                     ChangedServicNumber.ServiceNumber = serviceNO;
@@ -360,7 +386,6 @@ namespace MCQFeedImport
                                         ChangedIMEI.UpdatedDate = DateTime.Now;
                                         BlancoContext.SaveChanges();
                                     }
-
                                 }
                             }
                             Console.WriteLine("No Of Assets processing Count... " + assetrow++);
@@ -370,30 +395,31 @@ namespace MCQFeedImport
                             break;
                         }
                     }
+                    responsemodel.FeedFileCount = assetrow;
+                    responsemodel.FeedFileName = filepath;
+                    responsemodel.IsFileProcessSuccessful = true;
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            if (responsemodel.IsFileProcessSuccessful)
+            {
+                SendMailnotification(responsemodel);
+            }
         }
         public static void OptusFullFeedReprocess(string filepath)
         {
+            var responsemodel = new FeedResponseModel();
             try
             {
                 using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filepath, false))
                 {
-                
                     WorkbookPart wbPart = doc.WorkbookPart;
-
                     Sheet mysheet = (Sheet)doc.WorkbookPart.Workbook.Sheets.ChildElements.GetItem(0);
-
-
                     Worksheet Worksheet = ((WorksheetPart)wbPart.GetPartById(mysheet.Id)).Worksheet;
-
-                    //Note: worksheet has 8 children and the first child[1] = sheetviewdimension,....child[4]=sheetdata  
-                    int wkschildno = 4;                
+                    int wkschildno = 4;
                     SheetData Rows = (SheetData)Worksheet.ChildElements.GetItem(wkschildno);
                     int assetrow = 1;
                     int NewFeedCount = 0;
@@ -401,7 +427,7 @@ namespace MCQFeedImport
                     int ServiceNumberFeedUpdatedCount = 0;
                     for (int row = 1; row < Rows.Count(); row++)
                     {
-                        //getting the row as per the specified index of getitem method  
+
                         Row currentrow = (Row)Rows.ChildElements.GetItem(row);
                         if (!string.IsNullOrEmpty(GetCellValue((Cell)currentrow.ChildElements.GetItem(0), wbPart)))
                         {
@@ -412,9 +438,8 @@ namespace MCQFeedImport
                                 string IMEINO = GetCellValue((Cell)currentrow.ChildElements.GetItem(5), wbPart);
                                 string OptusMake = GetCellValue((Cell)currentrow.ChildElements.GetItem(3), wbPart);
                                 string OptusModel = GetCellValue((Cell)currentrow.ChildElements.GetItem(4), wbPart);
-
                                 var ChangedServicNumber = BlancoContext.MCQFeed
-                                    .Where(x => x.AssetNumber == assetNo && x.FeedVendor=="Optus" && x.ServiceNumber != serviceNO).FirstOrDefault();
+                                    .Where(x => x.AssetNumber == assetNo && x.FeedVendor == "Optus" && x.ServiceNumber != serviceNO).FirstOrDefault();
 
                                 var ChangedIMEI = BlancoContext.MCQFeed.Where(x => x.AssetNumber == assetNo && x.FeedVendor == "Optus" && x.IMEI != IMEINO).FirstOrDefault();
 
@@ -460,7 +485,7 @@ namespace MCQFeedImport
                                     BlancoContext.MCQFeed.Add(asset);
                                     BlancoContext.SaveChanges();
                                     Console.WriteLine($"Feed Row {assetrow}, Asset ID {_AssetID.AssetNumber} New Feed Creted..");
-                                     NewFeedCount++;
+                                    NewFeedCount++;
                                 }
                             }
                             Console.WriteLine("No Of Assets processing Count... " + assetrow++);
@@ -470,33 +495,32 @@ namespace MCQFeedImport
                             break;
                         }
                     }
-                    Console.WriteLine($"Total Assets Processed {assetrow}, New Feed Created {NewFeedCount}, Service Number Update Count {ServiceNumberFeedUpdatedCount} and IMEI Update Count {IMEIFeedUpdatedCount} ");
-                    Console.ReadKey();
-                }         
+                    string changefeedresp = $"Total Assets Processed {assetrow}, New Feed Created {NewFeedCount}, Service Number Update Count {ServiceNumberFeedUpdatedCount} and IMEI Update Count {IMEIFeedUpdatedCount}";
+
+                    responsemodel.FeedFileCount = assetrow;
+                    responsemodel.FeedFileName = filepath + changefeedresp;
+                    responsemodel.IsFileProcessSuccessful = true;
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-            
+            if (responsemodel.IsFileProcessSuccessful)
+            {
+                SendMailnotification(responsemodel);
+            }
         }
-
         public static void TelstraFullFeedReprocess(string filepath)
         {
+            var responsemodel = new FeedResponseModel();
             try
             {
                 using (SpreadsheetDocument doc = SpreadsheetDocument.Open(filepath, false))
                 {
-
                     WorkbookPart wbPart = doc.WorkbookPart;
-
                     Sheet mysheet = (Sheet)doc.WorkbookPart.Workbook.Sheets.ChildElements.GetItem(0);
-
-
                     Worksheet Worksheet = ((WorksheetPart)wbPart.GetPartById(mysheet.Id)).Worksheet;
-
-                    //Note: worksheet has 8 children and the first child[1] = sheetviewdimension,....child[4]=sheetdata  
                     int wkschildno = 4;
                     SheetData Rows = (SheetData)Worksheet.ChildElements.GetItem(wkschildno);
                     int assetrow = 1;
@@ -505,7 +529,7 @@ namespace MCQFeedImport
                     int ServiceNumberFeedUpdatedCount = 0;
                     for (int row = 1; row < Rows.Count(); row++)
                     {
-                        //getting the row as per the specified index of getitem method  
+
                         Row currentrow = (Row)Rows.ChildElements.GetItem(row);
                         if (!string.IsNullOrEmpty(GetCellValue((Cell)currentrow.ChildElements.GetItem(0), wbPart)))
                         {
@@ -516,15 +540,13 @@ namespace MCQFeedImport
                                 string IMEINO = GetCellValue((Cell)currentrow.ChildElements.GetItem(7), wbPart);
                                 string TelstraMake = GetCellValue((Cell)currentrow.ChildElements.GetItem(5), wbPart);
                                 string TelstraModel = GetCellValue((Cell)currentrow.ChildElements.GetItem(6), wbPart);
-                               
+
 
                                 var ChangedServicNumber = BlancoContext.MCQFeed
                                     .Where(x => x.AssetNumber == assetNo && x.FeedVendor == "Telstra" && x.ServiceNumber != serviceNO).FirstOrDefault();
 
                                 var ChangedIMEI = BlancoContext.MCQFeed.Where(x => x.AssetNumber == assetNo && x.FeedVendor == "Telstra" && x.IMEI != IMEINO).FirstOrDefault();
-
                                 var _AssetID = BlancoContext.MCQFeed.Where(x => x.AssetNumber == assetNo).FirstOrDefault();
-
                                 if (ChangedServicNumber != null)
                                 {
                                     ChangedServicNumber.ServiceNumber = serviceNO;
@@ -574,16 +596,20 @@ namespace MCQFeedImport
                             break;
                         }
                     }
-                    Console.WriteLine($"Total Assets Processed {assetrow}, New Feed Created {NewFeedCount}, Service Number Update Count {ServiceNumberFeedUpdatedCount} and IMEI Update Count {IMEIFeedUpdatedCount} ");
-                    Console.ReadKey();
+                    string changefeedresp = $"Total Assets Processed {assetrow}, New Feed Created {NewFeedCount}, Service Number Update Count {ServiceNumberFeedUpdatedCount} and IMEI Update Count {IMEIFeedUpdatedCount}";
+                    responsemodel.FeedFileCount = assetrow;
+                    responsemodel.FeedFileName = filepath + changefeedresp;
+                    responsemodel.IsFileProcessSuccessful = true;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-
+            if (responsemodel.IsFileProcessSuccessful)
+            {
+                SendMailnotification(responsemodel);
+            }
         }
         private static string GetCellValue(Cell theCell, WorkbookPart wbPart)
         {
@@ -639,6 +665,7 @@ namespace MCQFeedImport
             }
             return value;
         }
+
     }
 }
 

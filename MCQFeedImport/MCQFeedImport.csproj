@@ -79,6 +79,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -122,6 +123,7 @@
     <Compile Include="CPUSpeed.cs">
       <DependentUpon>JMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="FeedResponseModel.cs" />
     <Compile Include="ItemType.cs">
       <DependentUpon>JMS.tt</DependentUpon>
     </Compile>
@@ -149,6 +151,7 @@
     <Compile Include="Load.cs">
       <DependentUpon>JMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="MailNotificationService.cs" />
     <Compile Include="MCQFeed.cs" />
     <Compile Include="MCQ_MobileAssetsFeed.cs">
       <DependentUpon>JMS.tt</DependentUpon>
@@ -184,6 +187,7 @@
       <DependentUpon>JMS.edmx</DependentUpon>
       <LastGenOutput>JMS.cs</LastGenOutput>
     </Content>
+    <Content Include="MailTemplate\FeedUpdatenotification.htm" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
